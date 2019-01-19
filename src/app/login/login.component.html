@@ -1,0 +1,19 @@
+<h2>登录</h2>
+<div>
+  <label>用户名:
+    <input type="text" #name placeholder="请输入用户名">
+  </label>
+  <br>
+  <label>密码:
+    <input type="password"  #password placeholder="请输入密码">
+  </label>
+  <br>
+  <input type="button" (click)="login(name.value,password.value)" value="登录">
+</div>
+
+<ul *ngIf="isShow">
+  <li *ngFor="let rate of rates">
+        用户名：{{rate.username}}
+        邮箱：{{rate.email}}
+  </li>
+</ul>
