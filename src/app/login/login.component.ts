@@ -9,14 +9,13 @@ import gql from 'graphql-tag';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  retes:any=[];//用户数据
+  userAll:any=[];//用户数据
   isLogin:boolean=false;//是否登录成功
   isShow:boolean=false; //是否显示用户列表
-  //定义变量
-  // retes:any={};
+
 // 实例化Apollo类
   constructor(private apollo:Apollo) { }
-
+//获取用户信息数据
   ngOnInit() {
     this.apollo.watchQuery({
       query:gql`
@@ -30,14 +29,14 @@ export class LoginComponent implements OnInit {
       `
     })
     .valueChanges.subscribe(result=>{
-      // 把数据传递给rates变量
-      this.rates = result.data['users'];
+      // 把数据保存到rates中
+      this.userAll = result.data['users'];
     })
   }
   //点击登录时
   login(name,password){
-    this.rates.forEach(res => {
-      // alert(1);
+    this.userAll.forEach(res => {
+    
       // 判断用户名和密码
         if(name==res.username && password==res.password){
           // 登录成功

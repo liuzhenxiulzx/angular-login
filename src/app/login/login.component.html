@@ -12,8 +12,9 @@
 </div>
 
 <ul *ngIf="isShow">
-  <li *ngFor="let rate of rates">
-        用户名：{{rate.username}}
-        邮箱：{{rate.email}}
+  <li *ngFor="let rate of userAll">
+        用户名：{{rate.username}} <br>
+        密码：{{rate.password}}   <br>
+        邮箱：{{rate.email}} <hr>
   </li>
 </ul>
